@@ -1,5 +1,7 @@
+/* ! this project is mobile first */
 /* Global Variables */
 :root {
+	--red-border: 1px solid red;
 }
 
 /* Simple Reset Css */
@@ -18,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "Roboto Regular";
+	font-family: "Roboto Regular";
 	font-size: 1.6rem;
-  line-height: 1.6; /* this is affect to all elemnts */
+	line-height: 1.6; /* this is affect to all elemnts */
 }
