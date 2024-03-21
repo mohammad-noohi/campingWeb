@@ -1,0 +1,182 @@
+# Reset CSS
+
+```css
+/* simple css reset */
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+```
+
+> ما برای هر پروژه ای نیاز به css reset داریم تا مطمئن بشیم سایت ما توی همه ی مرورگرها ظاهر یکسانی داره و استفاده از css reset برای اینه که استایل های پیشفرض هر مرورگر را (user agent style sheet ) رو از بین ببریم که دوتا سایت زیر خیلی معروف هستند ولی همون reset css از همه بهتره
+
+> 1- reset css : https://meyerweb.com/eric/tools/css/reset/ \
+> 2- normalize css : https://necolas.github.io/normalize.css/
+
+> که خب اولی تمام استایل ها رو پاک میکنه اما دومی استایل های خاص خودشو داره و همون اولی بهتره
+
+# Container
+
+> از container برای نگهداری محتوای اصلی سایت استفاده میکنیم وبرای تعیین عرض نگهدارنده بهتره از max-width یا min-width استفاده کنیم
+
+```css
+.cotainer {
+	max-width: 1200px;
+}
+```
+
+# CSS Variables
+
+> ما علاوه بر pseudo class ها دیگه مثل hover , active , after , ... یه مورد دیگه هم داریم که به عنصر ریشه اشاره میکنه و اسم این شبه کلاس root است و نسبت به خود html دارای اولویت بالاتری است و مثلا توی کد زیر انتظار داریم که کدهای درون html روی کدهای root عمل overright انجام بده اما این اتفاق نمی افته چون اینا در عمل یکی نیستند و شبه کلاس root اولویت بالاتری نسبت به html دارد
+
+```css
+:root {
+	background-color: black;
+}
+
+html {
+	background-color: red;
+}
+```
+
+> و ما دونوع متغییر سی اس اسی داریم \
+> 1- global variable\
+> 2- local variable\
+
+که مورد اول رو در شبه کلاس root مینویسم و همه جا قابل استفاده است اما متغییر های محلی فقط برای فرزندان خودش قابل استفاده است و نحوه ی نام گذاری متغییر ها به این شکل است که باید اول از همه دوتا خط تیره بذاریم و نام متغییر ها case sensitive است و به حروف کوچک و بزرگ حساس است
+
+```css
+:root {
+	--bg-body: #b96f6f; /* global variable */
+}
+
+body {
+	background-color: var(--bg-body);
+}
+
+.mother {
+	--small-border: 1px solid red; /* local variable */
+}
+
+.child {
+	border: var(--small-border);
+}
+```
+
+# Media Queries
+
+> نکته ی اصلی در استفاده از مدیا کوئری ها اینه که ما داریم از عرض های بالاتر به پایین میایم (desktop first) یا داریم از عرض های پایین تربه بالا میایم(mobile first)
+> در واقع برای حالت desktop first از عرض های بالاتر به پایین میایم و از max-width استفاده میکنیم و ترتیب نوشتن این مدیا کوئری ها خیلی مهمه که اگر از max-width استفاده میکنیم باید از عرض های بزرگتر به عرض های کوچیکتر بنویسیم
+> و اگر داریم mobile first کار میکنیم از min-width استفاده میکنیم و باید از عرض های کم به عرض های بیشتر بنویسیم
+
+> min-width ==> از عرض کم به زیاد\
+> max-width ==> از عرض زیاد به کم
+
+### desktop first
+
+```css
+/* DESKTOP FIRST => use max-width  */
+@media screen and (max-width: 992px) {
+	/* code */
+}
+
+@media screen and (max-width: 768px) {
+	/* code */
+}
+
+@media screen and (max-width: 576px) {
+	/* code */
+}
+```
+
+### mobile first
+
+```css
+/* MOBILE FIRST => use min-width */
+@media screen and (min-width: 576px) {
+	/* code */
+}
+
+@media screen and (min-width: 768px) {
+	/* code */
+}
+
+@media screen and (min-width: 992px) {
+	/* code */
+}
+```
+
+> اگر بخواهیم از هردوتا همزمان استفاده کنیم اول max-width ها رو مینویسیم و بعد min-width هارو مینویسیم و مرز مشترک خیلی مهم است
+
+```css
+/* common breakpoint is 700px */
+@media screen and (max-width: 700px) {
+	/* code */
+}
+
+@media screen and (max-width: 600px) {
+	/* code */
+}
+
+@media screen and (min-width: 700px) {
+	/* code */
+}
+
+@media screen and (min-width: 800px) {
+	/* code */
+}
+
+@media screen and (min-width: 900px) {
+	/* code */
+}
+```
+
+# BEM
+
+> این روش میگه توی یه صفحه ی وب سایت یه سری بخش هایی داریم که به صورت مجزا قابل استفاده هستند و به تنهایی معنا دارند به اونها میگیم block و این بخش میتونه خودش از المان های کوچیکتری تشکیل شده باشه که بهش میگن element و حالا این المان میتونه حالت های مختلفی داشته باشه یا مثلا یه استایل یکم خاصی نسبت به بقیه داشته باشه که بهش میگن modifier و قانون اصلی روش بم هست و میگه توی css نباید به صورت تو در تو ادرس دهی کنی و فقط باید اسم کلاس رو بنویسی و تمام و سینتکش به این صورت است\
+> block**element--modifier\
+> حالا اگر مثلا اسم بلاک یا المان قراره چندکلمه ای باشه بین هر کلمه یه خط تیره میذاریم مثلا\
+> article-box ==> block name\
+> article-box**title ==> element name
+
+> site address : https://getbem.com/introduction/
+
+# How to export files from design
+
+> حجم تصاویر png بیشتر از jpeg/jpg هست و بهتره از تصاویر jpg استفاده بشه که حجم سایت کمتر و سرعت بیشتری داشته باشه مگر اینکه نیاز داشته باشیم تصویر بدون بک گراند باشه و نیاز داشته باشیم که حتما با فرمت png خروجی گرفته بشه
+
+> توی اکسپورت گرفتن باس به این دقت کنی چه چیزهایی رو میشه با کد نوشت و چه چیزهایی رو نمیشه اونایی که نمیشه رو باید حتما اکسپورت گرفت مثل ایکن ها و تصاویر و ... و پیدا کردن فونت ها و ..رو باید بلد باشیم و اینکه هرچیزی رو با چه فرمتی اکسپورت بگیریم به تجربه بستگی داره و با تمرین یادمیگیریم
+
+
+# Faveicon
+
+> یه چیزی داریم به نام favicon  که همون لوگوی سایت است که توی تب مرورگر نمایش داده میشه برای این کار دوتا روش هست اول اینکه در روت پروژه همونجا که فایل index.html است این عکس رو با فرمت .ico قرار بدی و خود مرورگر میاد و این فایل رو به عنوان لوگوی تب مروگر قرار میده که این روش اصولی تر است اما روش دوم استفاده از کد زیر در head فایل index.html است و کافیه ادرس رو بهش بدی و تمام
+
+```html
+<link rel="icon" type="image/png" href="...">
+```
+
+# Notes & Tricks
+
+### order of link in project
+
+> همیشه یادت باشه که توی لینک کردن فایل ها به فایل اچ تی ام ال مثلا لینک کردن چند فایل سی اس اس ترتیب لینک کردن خیلی مهمه و باید رعایت کنی و اون فایلی که  استایل های اصلی هست باید همیشه اخر از همه لینک بشه
+
+for example : 
+1- reset.css
+2- fonts.css
+3- app.css
+4- responsive.css
+
+> این یه مثال از ترتیب فایل های سی اس اس است
+
+
+

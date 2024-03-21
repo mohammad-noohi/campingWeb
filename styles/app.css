@@ -1,0 +1,24 @@
+/* Global Variables */
+:root {
+}
+
+/* Simple Reset Css */
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	/* این یعنی اگر المانی خودش یا مادرش باکس سایزینگ متفاوتی داشت از همون ارث بری کنه و در غیر اینصورت از تگ اچ تی ام ال ارث بری میکنه برای همین این شکلی نوشتیم */
+	box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto Regular";
+	font-size: 1.6rem;
+  line-height: 1.6; /* this is affect to all elemnts */
+}
