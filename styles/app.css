@@ -2,12 +2,22 @@
 /* Global Variables */
 :root {
 	--red-border: 1px solid red;
+	--white-border: 1px solid #fff;
+	--main-color: #e76f51;
+	--black-text: #3b3735;
+	--grey-text: #8d8d8d;
+	--grey-bg: #f3f3f3;
+	--white-text: #d2d2d2;
+	--white-text-active: #fff;
+	--orange-shadow: 5px 10px 30px rgba(231, 111, 81, 0.4);
+	--small-border-radius: 2rem;
+	--large-border-radius: 4rem;
 }
 
 /* Simple Reset Css */
 html {
 	box-sizing: border-box;
-	font-size: 62.5%; /* 1rem = 10px */
+	font-size: 62.5%; /*  1rem = 10px */
 }
 
 *,
@@ -15,12 +25,258 @@ html {
 *::after {
 	margin: 0;
 	padding: 0;
-	/* این یعنی اگر المانی خودش یا مادرش باکس سایزینگ متفاوتی داشت از همون ارث بری کنه و در غیر اینصورت از تگ اچ تی ام ال ارث بری میکنه برای همین این شکلی نوشتیم */
+	/*  این یعنی اگر المانی خودش یا مادرش باکس سایزینگ متفاوتی داشت از همون ارث بری کنه و در غیر اینصورت از تگ اچ تی ام ال ارث بری میکنه برای همین این شکلی نوشتیم */
 	box-sizing: inherit;
 }
 
 body {
 	font-family: "Roboto Regular";
 	font-size: 1.6rem;
-	line-height: 1.6; /* this is affect to all elemnts */
+	line-height: 1.6; /*   this is affect to all elemnts */
 }
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Components */
+.btn {
+	color: #fff;
+	width: 20rem;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--large-border-radius);
+	font-size: 1.8rem;
+	font-family: "Roboto Medium";
+}
+
+/* Header */
+.header {
+	background: linear-gradient(rgba(59, 55, 53, 0.5), rgba(59, 55, 53, 0.5)),
+		url(../images/header-bg.jpg);
+	background-position: center;
+	background-size: cover;
+	min-height: 85vh; /*  اینو استاد نوشت */
+}
+
+.header-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 2rem;
+}
+
+.nav {
+	display: flex;
+	gap: 3rem;
+}
+
+.logo {
+	display: block;
+	width: 5.5rem;
+	height: 5.5rem;
+}
+
+.logo__img {
+}
+
+/* Desktop Menu */
+.menu {
+	display: none;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.menu__item {
+}
+
+.menu__link {
+	color: var(--white-text);
+	font-size: 1.8rem;
+	text-transform: capitalize;
+	position: relative;
+	z-index: 1;
+}
+
+.menu__link--active {
+	color: var(--white-text-active);
+	font-weight: 600;
+}
+
+.menu__link--active::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 4rem;
+	height: 0.3rem;
+	background-color: var(--main-color);
+	--small-border-radius: 2rem;
+	border-radius: var(--large-border-radius);
+	transform: rotate(45deg);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: -1;
+}
+
+/* Header Top Buttons */
+.header-top__buttons {
+	display: none;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.header-top__button {
+	color: var(--white-text-active);
+	font-family: "Roboto Medium";
+	font-size: 1.8rem;
+}
+
+.header-top__button--border {
+	border: var(--white-border);
+	--small-border-radius: 2rem;
+	border-radius: var(--large-border-radius);
+	padding: 0.5rem 2.4rem;
+}
+
+/* Hamberger Menu */
+.hamberger-menu {
+	width: 5.5rem;
+	height: 5.5rem;
+	background-color: #fff;
+	--small-border-radius: 2rem;
+	border-radius: var(--small-border-radius);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.hamberger-menu__bar {
+	display: block;
+	width: 3rem;
+	height: 0.3rem;
+	background-color: var(--main-color);
+	--small-border-radius: 2rem;
+	border-radius: var(--large-border-radius);
+	position: relative;
+}
+
+.hamberger-menu__bar::before,
+.hamberger-menu__bar::after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 3rem;
+	height: 0.3rem;
+	background-color: var(--main-color);
+	--small-border-radius: 2rem;
+	border-radius: var(--large-border-radius);
+	transition: all 200ms ease-in;
+}
+
+.hamberger-menu__bar::before {
+	top: -1rem;
+}
+
+.hamberger-menu__bar::after {
+	top: 1rem;
+}
+
+.hamberger-menu__open .hamberger-menu__bar {
+	background-color: transparent;
+}
+
+.hamberger-menu__open .hamberger-menu__bar::before {
+	transform: translateY(1rem) rotate(45deg);
+}
+
+.hamberger-menu__open .hamberger-menu__bar::after {
+	transform: translateY(-1rem) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu-wrapper {
+	width: 240px;
+	padding: 2rem;
+	background-color: gray;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: -240px;
+	transition: left 200ms ease-in;
+}
+
+.mobile-menu-wrapper--open {
+	left: 0;
+}
+
+.mobile-menu {
+	margin-bottom: 3rem;
+}
+
+.mobile-menu__item {
+	margin-bottom: 0.8rem;
+}
+
+.mobile-menu__link {
+}
+
+.mobile-menu__buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+.mobile-menu__button {
+	border: var(--white-border);
+	--small-border-radius: 2rem;
+	border-radius: var(--large-border-radius);
+	padding: 0.5rem 0;
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Header Content */
+.header-content {
+	color: var(--white-text-active);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 6rem;
+	/* padding: 10rem 0; */ /*  اینو خودم نوشتم */
+	text-align: center;
+}
+
+.header-content__title {
+	font-family: "Archivo Black";
+	font-size: 4.5rem;
+	line-height: 1.4;
+	max-width: 35rem;
+	text-transform: capitalize;
+	margin-bottom: 3rem;
+}
+
+.header-content__text {
+	max-width: 34rem; /*  for break the line */
+	font-size: 1.8rem;
+	max-width: 52rem;
+	margin: 3rem 0;
+}
+
+.header-content__button {
+	background-color: var(--main-color);
+}
+
