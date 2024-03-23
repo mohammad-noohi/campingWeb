@@ -107,6 +107,11 @@ img {
 	z-index: 1;
 }
 
+.menu__link:hover{
+	color: var(--white-text-active);
+	transition: var(--btn-transition);
+}
+
 .menu__link--active {
 	color: var(--white-text-active);
 	font-weight: 600;
