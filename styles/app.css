@@ -1,6 +1,7 @@
 /* ! this project is mobile first */
 /* Global Variables */
 :root {
+	/*  color variables */
 	--red-border: 1px solid red;
 	--white-border: 1px solid #fff;
 	--main-color: #e76f51;
@@ -9,10 +10,17 @@
 	--grey-bg: #f3f3f3;
 	--white-text: #d2d2d2;
 	--white-text-active: #fff;
+	--app-bg: #faf4f2;
+	/*  shadow variables */
 	--orange-shadow: 5px 10px 30px rgba(231, 111, 81, 0.4);
+	/*  border-radius variables */
 	--small-border-radius: 2rem;
 	--large-border-radius: 4rem;
 	--btn-transition: all 100ms ease-in;
+	/*  fonts varibales */
+	--primary-font: "Roboto Regular";
+	--primary-font-md: "Roboto Medium";
+	--secondary-font: "Archivo Black";
 }
 
 /* Simple Reset Css */
@@ -31,9 +39,10 @@ html {
 }
 
 body {
-	font-family: "Roboto Regular";
+	font-family: var(--primary-font);
 	font-size: 1.6rem;
 	line-height: 1.6; /*   this is affect to all elemnts */
+	background-color: var(--app-bg);
 }
 
 a {
@@ -56,16 +65,17 @@ img {
 	align-items: center;
 	border-radius: var(--large-border-radius);
 	font-size: 1.8rem;
-	font-family: "Roboto Medium";
+	font-family: var(--primary-font-md);
 }
 
-/* Header */
+/* ======================= Header ======================= */
 .header {
 	background: linear-gradient(rgba(59, 55, 53, 0.5), rgba(59, 55, 53, 0.5)),
 		url(../images/header-bg.jpg);
 	background-position: center;
 	background-size: cover;
 	min-height: 85vh; /*  اینو استاد نوشت */
+	border-radius: 0 0 10rem 10rem;
 }
 
 .header-top {
@@ -107,7 +117,7 @@ img {
 	z-index: 1;
 }
 
-.menu__link:hover{
+.menu__link:hover {
 	color: var(--white-text-active);
 	transition: var(--btn-transition);
 }
@@ -144,7 +154,7 @@ img {
 
 .header-top__button {
 	color: var(--white-text-active);
-	font-family: "Roboto Medium";
+	font-family: var(--primary-font-md);
 	font-size: 1.8rem;
 	transition: var(--btn-transition);
 }
@@ -233,7 +243,7 @@ img {
 	font-size: 2.4rem;
 	color: var(--white-text-active);
 	text-transform: capitalize;
-	font-family: "Roboto Medium";
+	font-family: var(--primary-font-md);
 	border-bottom: var(--white-border);
 	padding-bottom: 0.8rem;
 	margin-bottom: 2rem;
@@ -326,7 +336,7 @@ img {
 }
 
 .header-content__title {
-	font-family: "Archivo Black";
+	font-family: var(--secondary-font);
 	font-size: 4.5rem;
 	line-height: 1.4;
 	max-width: 35rem;
@@ -343,4 +353,43 @@ img {
 
 .header-content__button {
 	background-color: var(--main-color);
+}
+
+/* ======================= Main ======================= */
+.main {
+}
+/* Services Section */
+
+.services {
+	/* margin-top: -10rem; */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	/*  just for test */
+	padding: 5rem 0;
+}
+
+.service {
+	width: 30rem;
+	/* height: 31rem; */
+	background-color: var(--white-text-active);
+	text-align: center;
+	padding: 3rem;
+	border-radius: var(--small-border-radius);
+	flex-grow: 1;
+}
+
+.service__banner {
+	width: 9rem;
+	height: 9rem;
+}
+
+.service__title {
+	font-family: var(--secondary-font);
+	font-size: 1.8rem;
+	color: var(--black-text);
+	margin: 2rem 0 1rem 0;
+}
+
+.service__caption {
 }
