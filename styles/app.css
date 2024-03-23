@@ -12,6 +12,7 @@
 	--orange-shadow: 5px 10px 30px rgba(231, 111, 81, 0.4);
 	--small-border-radius: 2rem;
 	--large-border-radius: 4rem;
+	--btn-transition: all 100ms ease-in;
 }
 
 /* Simple Reset Css */
@@ -129,7 +130,7 @@ img {
 	z-index: -1;
 }
 
-/* Header Top Buttons */
+/* Header Top Buttons(sing up & sing in buttons) */
 .header-top__buttons {
 	display: none;
 	align-items: center;
@@ -140,6 +141,7 @@ img {
 	color: var(--white-text-active);
 	font-family: "Roboto Medium";
 	font-size: 1.8rem;
+	transition: var(--btn-transition);
 }
 
 .header-top__button--border {
@@ -147,6 +149,11 @@ img {
 	--small-border-radius: 2rem;
 	border-radius: var(--large-border-radius);
 	padding: 0.5rem 2.4rem;
+}
+
+.header-top__button--border:hover {
+	color: var(--black-text);
+	background-color: var(--white-text-active);
 }
 
 /* Hamberger Menu */
@@ -207,14 +214,24 @@ img {
 
 /* Mobile Menu */
 .mobile-menu-wrapper {
+	background-color: var(--black-text);
 	width: 240px;
 	padding: 2rem;
-	background-color: gray;
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: -240px;
 	transition: left 200ms ease-in;
+}
+
+.mobile-menu-wrapper__title {
+	font-size: 2.4rem;
+	color: var(--white-text-active);
+	text-transform: capitalize;
+	font-family: "Roboto Medium";
+	border-bottom: var(--white-border);
+	padding-bottom: 0.8rem;
+	margin-bottom: 2rem;
 }
 
 .mobile-menu-wrapper--open {
@@ -230,6 +247,42 @@ img {
 }
 
 .mobile-menu__link {
+	position: relative;
+	transition: all 250ms ease-in-out;
+	color: var(--white-text);
+}
+
+.mobile-menu__link::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0.3rem;
+	border-radius: var(--large-border-radius);
+	background-color: var(--main-color);
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	transition: all 250ms ease-in-out;
+}
+
+.mobile-menu__link:hover {
+	padding-left: 2rem;
+	color: var(--white-text-active);
+}
+
+.mobile-menu__link:hover::before {
+	width: 1.6rem;
+}
+
+/*  mobile menu link active state */
+.mobile-menu__link--active {
+	padding-left: 2rem;
+	color: var(--white-text-active);
+}
+
+.mobile-menu__link--active::before {
+	width: 1.6rem;
 }
 
 .mobile-menu__buttons {
@@ -246,6 +299,13 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: var(--white-text-active);
+	transition: var(--btn-transition);
+}
+
+.mobile-menu__button:hover {
+	background-color: var(--white-text-active);
+	color: var(--black-text);
 }
 
 /* Header Content */
@@ -279,4 +339,3 @@ img {
 .header-content__button {
 	background-color: var(--main-color);
 }
-
