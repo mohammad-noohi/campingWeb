@@ -30,6 +30,21 @@
 	.header-top__buttons {
 		display: flex;
 	}
+
+	/* newsletter */
+
+	.newsletter {
+		flex-direction: row;
+	}
+
+	.newsletter__content {
+		text-align: left;
+		width: 80%;
+	}
+
+	.newsletter__input-wrapper {
+		margin: 0;
+	}
 }
 
 @media screen and (min-width: 1200) {
