@@ -30,6 +30,7 @@
 html {
 	box-sizing: border-box;
 	font-size: 62.5%; /*  1rem = 10px */
+	scroll-behavior: smooth;
 }
 
 *,
@@ -240,6 +241,7 @@ img {
 	bottom: 0;
 	left: -240px;
 	transition: left 200ms ease-in;
+	z-index: 1000;
 }
 
 .mobile-menu-wrapper__title {
@@ -604,3 +606,4 @@ img {
 
 .newsletter__img {
 }
+

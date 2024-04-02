@@ -3,6 +3,7 @@ const $ = document;
 const hambergerMenu = $.querySelector(".hamberger-menu");
 const mobileMenuWrapper = $.querySelector(".mobile-menu-wrapper");
 const allLikeIcons = $.querySelectorAll(".place__like");
+const headerTop = $.querySelector(".header-top");
 
 /* Flags Variable */
 let mobileMenuIsOpen = false;
@@ -21,10 +22,8 @@ hambergerMenu.addEventListener("click", function () {
 });
 
 /* Effect of Like on Place Cards */
-console.log(allLikeIcons);
-
-allLikeIcons.forEach( likeIcon => {
-	likeIcon.addEventListener('click', e => {
-		e.target.closest('.place__like').classList.toggle('place__like--active')
-	})
-})
+allLikeIcons.forEach((likeIcon) => {
+	likeIcon.addEventListener("click", (e) => {
+		e.target.closest(".place__like").classList.toggle("place__like--active");
+	});
+});
