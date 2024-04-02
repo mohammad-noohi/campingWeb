@@ -78,8 +78,8 @@ img {
 		url(../images/header-bg.jpg);
 	background-position: center;
 	background-size: cover;
-	min-height: 85vh; /*  اینو استاد نوشت */
-	border-radius: 0 0 10rem 10rem;
+	height: 70rem;
+	border-radius: 0 0 7rem 7rem;
 }
 
 .header-top {
@@ -372,6 +372,7 @@ img {
 	gap: 2rem;
 	/*  just for test */
 	padding: 5rem 0;
+	margin-top: -15rem;
 }
 
 .service {
@@ -607,3 +608,95 @@ img {
 .newsletter__img {
 }
 
+/* ======================= Footer ======================= */
+.footer {
+	color: var(--black-text);
+	background-color: var(--footer-bg);
+	border-radius: 7rem 7rem 0 0;
+	padding-bottom: 3rem;
+}
+
+.footer-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	margin-bottom: 4rem;
+	padding-top: 7rem;
+	position: relative;
+}
+
+.footer-content {
+}
+
+.footer__title {
+	font-family: var(--secondary-font);
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+}
+
+.footer-caption {
+}
+
+.footer-menus-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.footer-menu {
+	flex-grow: 1;
+}
+
+.footer-menu__list {
+}
+
+.footer-menu__item {
+}
+
+.footer-menu__link {
+}
+
+.footer-menu__link:hover {
+	text-decoration: underline;
+}
+
+.scroll-to-top-btn {
+	background-color: var(--white-text-active);
+	border: none;
+	outline: none;
+	position: absolute;
+	width: 6rem;
+	height: 6rem;
+	border-radius: var(--small-border-radius);
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transform: translateY(-50%);
+	box-shadow: 0.5rem 1rem 3rem rgba(59, 55, 52, 0.05);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.footer-apps {
+}
+
+.footer__title {
+}
+
+.footer-apps__images {
+	display: flex;
+	gap: 1rem;
+}
+
+.footer-apps__img {
+	width: 14.7rem;
+}
+
+.footer-copy-right {
+	font-size: 1.4rem;
+	margin-top: 4rem;
+	text-align: center;
+}

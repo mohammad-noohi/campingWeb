@@ -3,7 +3,7 @@ const $ = document;
 const hambergerMenu = $.querySelector(".hamberger-menu");
 const mobileMenuWrapper = $.querySelector(".mobile-menu-wrapper");
 const allLikeIcons = $.querySelectorAll(".place__like");
-const headerTop = $.querySelector(".header-top");
+const scrollToTopBtn = $.querySelector(".scroll-to-top-btn");
 
 /* Flags Variable */
 let mobileMenuIsOpen = false;
@@ -26,4 +26,9 @@ allLikeIcons.forEach((likeIcon) => {
 	likeIcon.addEventListener("click", (e) => {
 		e.target.closest(".place__like").classList.toggle("place__like--active");
 	});
+});
+
+/* Scroll To Top Button */
+scrollToTopBtn.addEventListener("click", (e) => {
+	window.scrollTo(0, 0);
 });

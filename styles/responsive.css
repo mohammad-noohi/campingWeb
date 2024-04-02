@@ -9,6 +9,10 @@
 		font-size: 7rem;
 		max-width: 56rem;
 	}
+
+	.scroll-to-top-btn {
+		left: auto;
+	}
 }
 
 @media screen and (min-width: 768px) {
@@ -44,6 +48,20 @@
 
 	.newsletter__input-wrapper {
 		margin: 0;
+	}
+
+	/* footer */
+	.footer-wrapper {
+		flex-direction: row;
+	}
+
+	.footer-content {
+		width: 40%;
+	}
+
+	.footer-menus-wrapper {
+		width: 60%;
+		flex-wrap: nowrap;
 	}
 }
 
