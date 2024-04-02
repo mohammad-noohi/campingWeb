@@ -156,8 +156,8 @@ table {
 	padding-right: 1.5rem;
 	margin-left: auto;
 	margin-right: auto;
-	border-right: var(--red-border);
-	border-left: var(--red-border);
+	/* border-right: var(--red-border); */
+	/* border-left: var(--red-border); */
 }
 
 /* ======================= App CSS ======================= */
@@ -209,6 +209,7 @@ body {
 	font-size: 1.6rem;
 	line-height: 1.6; /*   this is affect to all elemnts */
 	background-color: var(--app-bg);
+	overflow-x: hidden;
 }
 
 a {
@@ -568,6 +569,31 @@ img {
 .destinations {
 	text-align: center;
 	padding: 5rem 0;
+	position: relative;
+}
+
+.destinations::before,
+.destinations::after {
+	content: "";
+	position: absolute;
+	width: 70rem;
+	height: 70rem;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	z-index: -1;
+}
+
+.destinations::before {
+	background-image: url(../images/svgs/shape1.svg);
+	top: -25rem;
+	right: -30rem;
+}
+
+.destinations::after {
+	background-image: url(../images/svgs/shape2.svg);
+	bottom: 25rem;
+	left: -30rem;
 }
 
 .destinations__logo {
@@ -942,13 +968,13 @@ img {
 	}
 }
 
-@media screen and (min-width: 1200) {
+@media screen and (min-width: 1200px) {
 	.container {
 		width: 114rem;
 	}
 }
 
-@media screen and (min-width: 1400) {
+@media screen and (min-width: 1400px) {
 	.container {
 		width: 132rem;
 	}
