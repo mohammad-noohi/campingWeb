@@ -1,4 +1,166 @@
 /* ! this project is mobile first */
+/* ======================= Reset CSS ======================= */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ======================= Fonts ======================= */
+/* Archivo Fonts */
+@font-face {
+	font-family: "Archivo Black";
+	src: url(../fonts/Archivo/Archivo-Black.ttf) format("truetype");
+}
+
+/* Roboto Fonts */
+@font-face {
+	font-family: "Roboto Regular";
+	src: url(../fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto Medium";
+	src: url(../fonts/Roboto/Roboto-Medium.ttf) format("truetype");
+}
+
+/* ======================= Grid System ======================= */
+/*  this container is for mobile first */
+.container {
+	width: 100%;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	border-right: var(--red-border);
+	border-left: var(--red-border);
+}
+
+/* ======================= App CSS ======================= */
 /* Global Variables */
 :root {
 	/*  colors */
@@ -699,4 +861,95 @@ img {
 	font-size: 1.4rem;
 	margin-top: 4rem;
 	text-align: center;
+}
+
+/* ======================= Responsive CSS ======================= */
+
+@media screen and (max-width: 370px) {
+	.header-content__title {
+		font-size: 3.8rem;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.container {
+		width: 54rem;
+	}
+
+	.header-content__title {
+		font-size: 7rem;
+		max-width: 56rem;
+	}
+
+	.scroll-to-top-btn {
+		left: auto;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.container {
+		width: 72rem;
+	}
+	/*  hide hamberger menu */
+	.hamberger-menu {
+		display: none;
+	}
+
+	.menu {
+		display: flex;
+	}
+
+	.mobile-menu-wrapper {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.container {
+		width: 96rem;
+	}
+	.header-top__buttons {
+		display: flex;
+	}
+
+	/* newsletter */
+
+	.newsletter {
+		flex-direction: row;
+	}
+
+	.newsletter__content {
+		text-align: left;
+		width: 80%;
+	}
+
+	.newsletter__input-wrapper {
+		margin: 0;
+	}
+
+	/* footer */
+	.footer-wrapper {
+		flex-direction: row;
+	}
+
+	.footer-content {
+		width: 40%;
+	}
+
+	.footer-menus-wrapper {
+		width: 60%;
+		flex-wrap: nowrap;
+	}
+}
+
+@media screen and (min-width: 1200) {
+	.container {
+		width: 114rem;
+	}
+}
+
+@media screen and (min-width: 1400) {
+	.container {
+		width: 132rem;
+	}
 }
